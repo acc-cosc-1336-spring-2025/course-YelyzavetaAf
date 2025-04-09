@@ -1,4 +1,4 @@
-from lists import get_lowest_list_value, get_highest_list_value
+from lists import get_lowest_list_value, get_highest_list_value, get_p_distance_matrix
 
 def main():
     while True:
@@ -28,7 +28,33 @@ def main():
             print("Highest value:", get_highest_list_value(numbers))
         else:
             print("Invalid choice. Please try again.")
-if __name__ == "__main__":
-    main()
+       
 
+
+def get_matrix_menu():
+    dataset = [
+        ['T','T','T','C','C','A','T','T','T','A'],
+        ['G','A','T','T','C','A','T','T','T','C'],
+        ['T','T','T','C','C','A','T','T','T','T'],
+        ['G','T','T','C','C','A','T','T','T','A']
+    ]
+
+    while True:
+        print("\nMenu:")
+        print("1 - Get p distance matrix")
+        print("2 - Exit")
+        choice = input("Choose an option: ")
+
+        if choice == "1":
+            matrix = get_p_distance_matrix(dataset)
+            print("\nP-Distance Matrix:")
+            for row in matrix:
+                print(" ".join(f"{val:3f}" for val in row))
+        elif choice == "2":
+            print("Exiting program.")
+            break
+        else:
+            print("Invalid choice. Please enter 1 or 2.")
         
+if __name__ == "__main__":
+    get_matrix_menu()
